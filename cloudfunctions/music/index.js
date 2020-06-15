@@ -4,7 +4,7 @@ const TcbRouter = require('tcb-router')
 const rp = require('request-promise')
 cloud.init()
 let db = cloud.database({
-  env: 'dev-ae1s9'
+  env: 'dev-ht6ju'
 })
 let playlistCollection = db.collection('playlist')
 const BASE_URL = 'http://musicapi.xiecheng.live'
@@ -31,6 +31,10 @@ exports.main = async (event, context) => {
     ctx.body = await rp(BASE_URL+`/song/url?id=${event.musicId}`).then(res=>{
       return res
     })
+  })
+  app.router('lyric',async (ctx,next)=>{
+    ctx.body =await rp(BASE_URL+`/lyric?id=${event.musicId}`)
+    
   })
   return app.serve()
 }

@@ -1,2 +1,20 @@
-<!--pages/blog/blog.wxml-->
-<text>pages/blog/blog.wxml</text>
+<!-- pages/blog/blog.wxml -->
+<view class="container">
+  <view class="header">
+    <view class="publish-container" bind:tap="onPublish">
+      <i class="iconfont icon-fabu"></i>
+    </view>
+    <view class="search-container">
+      <x-search bind:search='onSearch' iconfont='iconfont' icon-sousuo='icon-sousuo'></x-search>
+    </view>
+  </view>
+  <view class="blog-list">
+    <block wx:for="{{blogList}}" wx:key="_id">
+      <view class="blog-panel">
+        <x-blog-card data-blogid='{{item._id}}' bind:tap="goComment" blog='{{item}}'></x-blog-card>
+        <x-blog-ctrl blog='{{item}}' blogId='{{item._id}}' iconfont='iconfont' icon-pinglun='icon-pinglun' icon-fenxiang='icon-fenxiang' ></x-blog-ctrl>
+      </view>
+    </block>
+  </view>
+  <x-login bind:loginfail='loginfail' bind:loginsuccess='loginsuccess' modalShow='{{modalShow}}'></x-login>
+</view>

@@ -11,10 +11,19 @@ Component({
       
     }
   },
+  pageLifetimes:{
+    show(){
+      this.setData({
+        playingId:app.getPlayMusicId()
+      })
+    }
+  },
   methods:{
     onSelect(event){
       let dataset = event.currentTarget.dataset
       let playingId = dataset.musicid
+      console.log(playingId,this.data.musiclist)
+      console.log(typeof playingId)
       let index = dataset.index
       this.setData({
         playingId

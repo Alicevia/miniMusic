@@ -18,33 +18,33 @@ Page({
         url: 'http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg',
       }
     ],
-    playlist:[]
+    playlist: []
   },
 
-  _getPlaylist(){
+  _getPlaylist() {
     wx.showLoading({
-      title:'加载中...'
+      title: '加载中...'
     })
     wx.cloud.callFunction({
       name: 'music',
       data: {
         start: this.data.playlist.length,
         count: MAX_LIMIT,
-        $url:'playlist'
+        $url: 'playlist'
       }
-    }).then(({result:{data}}) => {
+    }).then(({ result: { data } }) => {
       this.setData({
-        playlist:this.data.playlist.concat(data)
+        playlist: this.data.playlist.concat(data)
       })
       wx.stopPullDownRefresh()
       wx.hideLoading()
     })
   },
-  getMusicInfo(){
+  getMusicInfo() {
     wx.cloud.callFunction({
-      name:'tcbRouter',
-      data:{
-        $url:'music'
+      name: 'tcbRouter',
+      data: {
+        $url: 'music'
       }
     })
   },
@@ -52,8 +52,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   this._getPlaylist()
-   this.getMusicInfo()
+    this._getPlaylist()
+    this.getMusicInfo()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -88,7 +88,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({
-      playlist:[]
+      playlist: []
     })
     this._getPlaylist()
   },
@@ -107,3 +107,4 @@ Page({
 
   }
 })
+

@@ -10,11 +10,33 @@ App({
         //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
         //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
         //   如不填则使用默认环境（第一个创建的环境）
-        // env: 'dev-ae1s9',//你创建的环境
+        env: 'dev-ht6ju',//你创建的环境
         traceUser: true,//每个访问过这个小程序的人都会被监控
       })
     }
-
-    this.globalData = {}
+    this.getOpenid()
+    this.globalData = {
+      playingMusicId:-1,
+      openid:-1
+    }
+  },
+  setPlayMusicId(id){
+    this.globalData.playingMusicId=id
+  },
+  getPlayMusicId(){
+    return this.globalData.playingMusicId
+  },
+  getOpenid(){
+    wx.cloud.callFunction({
+      name:'login'
+    }).then(res=>{
+      console.log(res)
+      let openid = res.result.openid
+      this.globalData.openid=res.result.openid
+      console.log(wx.getStorageSync(openid)==='')
+      if (wx.getStorageSync(openid)==='') {
+        wx.setStorageSync(openid,[])
+      }
+    })
   }
 })

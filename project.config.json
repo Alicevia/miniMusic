@@ -2,14 +2,29 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"enhance": true
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
-	"appid": "wx67075b14fea42f4b",
+	"appid": "wx48b8541a97431027",
 	"projectname": "minicould",
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
@@ -49,6 +64,33 @@
 					"name": "pages/musiclist/musiclist",
 					"pathName": "pages/musiclist/musiclist",
 					"query": "playlistId=2817114737",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/blog-edit/blog-edit",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "nickName=\"Alicevia\"& avatarUrl: \"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTI1PT2UI…b1c2picXbn3Htp1oU4maOO1O5WiaNewkg6VGA1rP8Zxfg/132\"",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/playlist/playlist",
+					"pathName": "pages/playlist/playlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/blog/blog",
+					"pathName": "pages/blog/blog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/profile/profile",
+					"pathName": "pages/profile/profile",
 					"scene": null
 				}
 			]

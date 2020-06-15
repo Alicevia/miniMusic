@@ -28,6 +28,8 @@ Page({
       wx.stopPullDownRefresh()
       this._setMusiclist()
       wx.hideLoading()
+    }).catch(err=>{
+      console.log(err)
     })
   },
   _setMusiclist(){

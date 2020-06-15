@@ -3,7 +3,7 @@ const request = require('request-promise')
 
 cloud.init()
 const db = cloud.database({
-  env: 'dev-ae1s9'
+  env: 'dev-ht6ju'
 })
 const URL = 'http://musicapi.xiecheng.live/personalized'
 const playlistCollection = db.collection('playlist')
